@@ -344,3 +344,16 @@ button:hover{
     color : white;
     padding : auto;
 }
+section.cart{
+    background-color: lightgray;
+}
+span.amount{
+    color : red;
+    text-decoration: underline;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+section.login{
+    background : lightgray;
+    height : auto;
+}
