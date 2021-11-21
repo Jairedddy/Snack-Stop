@@ -5,7 +5,7 @@
         <div class="content">
             <h3>food made with love</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quam!</p>
-            <a href="#burgermenu" class="btn">order now</a>
+            <a href="#menubox" class="btn">order now</a>
         </div>
         
         <div class="image">
@@ -16,7 +16,6 @@
         <h1 class="heading"><span>best in our menu</span></h1>
         <div class="box-container">
             <div class="box">
-                <span class="price">$5 - $20</span>
                 <img src="IMAGES/price-1.jpg" alt="">
                 <h3>tasty burger</h3>
                 <div class="stars">
@@ -26,10 +25,9 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <a href="#burgermenu" class="btn">View menu</a>
+                <a href="#menubox" class="btn">View menu</a>
             </div>
             <div class="box">
-                <span class="price">$5 - $20</span>
                 <img src="IMAGES/price-2.jpg" alt="">
                 <h3>tasty cakes</h3>
                 <div class="stars">
@@ -39,36 +37,9 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <a href="#cakesmenu" class="btn">View Menu</a>
+                <a href="#menubox" class="btn">View Menu</a>
             </div>
             <div class="box">
-                <span class="price">$5 - $20</span>
-                <img src="IMAGES/price-3.jpg" alt="">
-                <h3>tasty namkeen</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <a href="#namkeenmenu" class="btn">View Menu</a>
-            </div>
-            <div class="box">
-                <span class="price">$5 - $20</span>
-                <img src="IMAGES/price-4.jpg" alt="">
-                <h3>tasty cupcakes</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <a href="#cupcakesmenu" class="btn">View Menu</a>
-            </div>
-            <div class="box">
-                <span class="price">$5 - $20</span>
                 <img src="IMAGES/price-5.jpg" alt="">
                 <h3>cold drinks</h3>
                 <div class="stars">
@@ -78,390 +49,32 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <a href="#colddrinksmenu" class="btn">View menu</a>
-            </div>
-            <div class="box">
-                <span class="price">$5 - $20</span>
-                <img src="IMAGES/price-6.jpg" alt="">
-                <h3>cold ice-cream</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <a href="#icecreammenu" class="btn">View Menu</a>
+                <a href="#menubox" class="btn">View menu</a>
             </div>
         </div>
     </section>
-    <section class="menu container mx-auto py-8" id="burgermenu">
+    <section class="menu container mx-auto py-8" id="menubox">
         <h1 class="font-bold mb-8" style="font-size : 30px; background-color: lightcoral; text-align: center;">Burgers</h1>
         <div class="grid grid-cols-3 gap-x-12 gap-y-16">
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/burger-1.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Plain Hamburger</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 1</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$5.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
+            <% items.forEach(function(item){ %>
+                <div class="w-64">
+                    <img class="h-40 mb-4 mx-auto" src="IMAGES/<%= item.image %>" alt="">
+                    <div style="text-align : center;">
+                        <h2 class="mb-4" style="font-size : 16px;"><%=item.name%></h2>
+                        <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 1</span>
+                        <div class="flex items-center justify-around mt-6">
+                            <span class="font-bold text-lg" style="font-size : 14px;">$<%= item.price %>.00</span>
+                            <button data-item="<%= JSON.stringify(item) %>" class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                                <span>+</span>
+                                <span class="ml-4">Add</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/burger-2.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Double Hamburger</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 1</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$10.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/burger-3.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Chicken Hamburger</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 1</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$10.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/burger-4.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Bacon Hamburger</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 1</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$12.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
+            <% })%>
+            
         </div>
     </section>
-    <section class="menu container mx-auto py-8" id="cakesmenu">
-        <h1 class="font-bold mb-8" style="font-size : 30px; background-color: lightcoral; text-align: center;">CAKES</h1>
-        <div class="grid grid-cols-3 gap-x-12 gap-y-16">
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/cake-1.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Vanilla Cake</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 4</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$20.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/cake-2.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Chocolate Iced Cake</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 4</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$22.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/cake-3.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Vanilla and Chocolate Iced Cake</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 4</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$25.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/cake-4.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Plain Chocolate Cake</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 4</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$25.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="menu container mx-auto py-8" id="namkeenmenu">
-        <h1 class="font-bold mb-8" style="font-size : 30px; background-color: lightcoral; text-align: center;">NAMKEEN</h1>
-        <div class="grid grid-cols-3 gap-x-12 gap-y-16">
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/namkeen1.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Haldi Bhujia</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">4 SERVINGS</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$5.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/namkeen2.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">MONNG DAL</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">4 SERVINGS</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$5.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/namkeen3.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">SPICY BHUNDHI</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">4 SERVINGS</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$5.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/namkeen4.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">MIXTURE</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">4 SERVINGS</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$5.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="menu container mx-auto py-8" id="cupcakesmenu">
-        <h1 class="font-bold mb-8" style="font-size : 30px; background-color: lightcoral; text-align: center;">CUPCAKES</h1>
-        <div class="grid grid-cols-3 gap-x-12 gap-y-16">
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/cupcake-1.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Caramel honey</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 1</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$3.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/cupcake-2.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Candy Land</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 1</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$3.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/cupcake-3.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Red Velvet</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 1</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$4.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/cupcake-4.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Mint Chocolate</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 1</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$5.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="menu container mx-auto py-8" id="colddrinksmenu">
-        <h1 class="font-bold mb-8" style="font-size : 30px; background-color: lightcoral; text-align: center;">COLD DRINKS</h1>
-        <div class="grid grid-cols-3 gap-x-12 gap-y-16">
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/colddrink-1.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Iced Tea</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 1</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$7.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/colddrink-2.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Ice Coffee</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 1</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$7.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/colddrink-3.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Lemonade Combo</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 3</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$15.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/colddrink-4.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Iced Latte</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 1</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$10.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="menu container mx-auto py-8" id="icecreammenu">
-        <h1 class="font-bold mb-8" style="font-size : 30px; background-color: lightcoral; text-align: center;">ICE CREAMS</h1>
-        <div class="grid grid-cols-3 gap-x-12 gap-y-16">
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/ic1.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Strawberry</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 1</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$5.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/ic2.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Candy Froy</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 1</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$8.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/ic3.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Chocolate</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 1</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$6.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-            <div class="w-64">
-                <img class="h-40 mb-4 mx-auto" src="IMAGES/ic4.jpg" alt="">
-                <div style="text-align : center;">
-                    <h2 class="mb-4" style="font-size : 16px;">Strawberry Caramel</h2>
-                    <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 1</span>
-                    <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg" style="font-size : 14px;">$6.00</span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                            <span>+</span>
-                            <span class="ml-4">Add</span>
-                        </button>
-                    </div>                
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="gallery" id="gallery">
         <h1 class="heading"> our food <span> gallery </span></h1>
         <div class="box-container">
@@ -535,4 +148,5 @@
         </div>
     </section>
 </body>
+<script src="../js/app.js" type="text/javascript"></script>
 </html> 

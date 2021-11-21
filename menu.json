@@ -1,0 +1,62 @@
+[
+    {
+        "name" : "Plain Hamburger",
+        "price" : 5,
+        "image" : "burger-1.jpg"
+    },
+    {
+        "name" : "Double Hamburger",
+        "price" : 10,
+        "image" : "burger-2.jpg"
+    },
+    {
+        "name" : "Chicken Hamburger",
+        "price" : 10,
+        "image" : "burger-3.jpg"
+    },
+    {
+        "name" : "Bacon Hamburger",
+        "price" : 12,
+        "image" : "burger-4.jpg"
+    },
+    {
+        "name" : "Vanilla Cake",
+        "price" : 20,
+        "image" : "cake-1.jpg"
+    },
+    {
+        "name" : "Chocolate Iced Cake",
+        "price" : 22,
+        "image" : "cake-2.jpg"
+    },
+    {
+        "name" : "Vanilla And Chocolate Iced Cake",
+        "price" : 25,
+        "image" : "cake-3.jpg"
+    },
+    {
+        "name" : "Plain Chocolate Cake",
+        "price" : 25,
+        "image" : "cake-4.jpg"
+    },
+    {
+        "name" : "Iced Tea",
+        "price" : 7,
+        "image" : "colddrink-1.jpg"
+    },
+    {
+        "name" : "Ice Coffee",
+        "price" : 7,
+        "image" : "colddrink-2.jpg"
+    },
+    {
+        "name" : "Lemonade Combo",
+        "price" : 15,
+        "image" : "colddrink-3.jpg"
+    },
+    {
+        "name" : "Iced Latte",
+        "price" : 10,
+        "image" : "colddrink-4.jpg"
+    }
+]
