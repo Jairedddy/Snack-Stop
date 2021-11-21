@@ -16,8 +16,14 @@
             <a href="#burgermenu">Menu</a>
             <a href="#gallery">gallery</a>
             <a href="#review">review</a>
-            <a href="/login" style="color : red; text-decoration : underline;">Login</a>
+            <% if(user) { %>
+                <form id="logout" action="/logout" method="POST">
+                    <a onclick="document.getElementById('logout').submit()" href="#" style="color : red; text-decoration : underline;">Logout</a>
+                </form>
+            <% } else { %>
             <a href="/register" style="color : red; text-decoration : underline;">Register User</a>
+            <a href="/login" style="color : red; text-decoration : underline;">Login</a>
+            <% } %>
             <a href="/cart" class="inline-block px-4 py-2 rounded-full items-center" id="cart">
                 <span>Cart</span>
                 <span id="cartCounter"><%= session.cart ? "(" + session.cart.totalQty + ")" : '' %></span></a>
