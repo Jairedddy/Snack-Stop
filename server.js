@@ -1,4 +1,5 @@
-require('dotenv').config()
+const dotenv = require("dotenv")
+dotenv.config()
 const express = require('express')
 const app = express()
 const ejs = require('ejs')
@@ -10,10 +11,10 @@ const session = require('express-session')
 const flash = require('express-flash')
 const MongoDbStore = require('connect-mongo')(session)
 const passport = require('passport')
+const Emitter = require('events')
 
-
-const url = 'mongodb://localhost/snackstop';
-mongoose.connect(url,{ useNewUrlParser:true , useUnifiedTopology:true});
+const url = process.env.MONGO_URL
+mongoose.connect(url, { useNewUrlParser : true, useUnifiedTopology : true});
 const connection = mongoose.connection;
 connection.once('open' , () => {
     console.log('Database connected......');
@@ -27,6 +28,9 @@ let mongoStore = new MongoDbStore({
         mongooseConnection: connection,
         collection: 'sessions'
         })
+
+const eventEmitter = new Emitter()
+app.set('eventEmitter',eventEmitter)
 
 app.use(session({
     secret: process.env.COOKIE_SECRET,
@@ -61,8 +65,24 @@ app.set('view engine','ejs')
 
 
 require('./routes/web')(app)
+app.use((req,res)=>{
+    res.status(404).render('errors/404')
+})
 
+const server = app.listen(PORT , () => {
+    console.log(`Listening on port ${PORT}`)
+})
 
-app.listen(PORT , () =>{
-    console.log(`Listening on port ${PORT}`);
+const io = require('socket.io')(server)
+io.on('connection',(socket)=>{
+    socket.on('join',(orderId)=>{
+        socket.join(orderId)
+    })
+})
+
+eventEmitter.on('orderUpdated',(data)=>{
+    io.to('order_${data.id}').emit('orderUpdated',data)
+})
+eventEmitter.on('orderPlaced',(data)=>{
+    io.to('adminRoom').emit('orderPlaced',data)
 })

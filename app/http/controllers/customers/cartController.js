@@ -1,30 +1,31 @@
+const { json } = require("express")
+
 function cartController(){
     return {
         index : function(req,res){
-            res.render('cart')
+            res.render('customers/cart')
         },
         update(req,res){
 
             if (!req.session.cart){
                 req.session.cart = {
-                    menuitems: {},
+                    items: {},
                     totalQty: 0,
                     totalPrice: 0
                 }
             }
             let cart = req.session.cart
-            console.log(req.body)
 
-            if(!cart.menuitems[req.body._id]){
-                cart.menuitems[req.body._id]={
-                    menuitem : req.body,
+            if(!cart.items[req.body._id]){
+                cart.items[req.body._id]={
+                    item : req.body,
                     qty: 1
                 }
                 cart.totalQty = cart.totalQty + 1;
                 cart.totalPrice = cart.totalPrice + req.body.price;
             }
             else{
-                cart.menuitems[req.body._id].qty += 1;
+                cart.items[req.body._id].qty = cart.items[req.body._id].qty + 1;
                 cart.totalQty = cart.totalQty + 1;
                 cart.totalPrice = cart.totalPrice + req.body.price;
             }

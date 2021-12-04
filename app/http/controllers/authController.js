@@ -4,7 +4,7 @@ const passport = require('passport')
 function authController(){
     return {
         login : function(req,res){
-            res.render('login')
+            res.render('auth/login')
         },
 
         postLogin(req,res,next){
@@ -29,13 +29,13 @@ function authController(){
                         return next(err)
                     }
 
-                    return res.redirect('/')
+                    return res.redirect('/');
                 })
             })(req,res,next)
         },
 
         register : function(req,res){
-            res.render('register')
+            res.render('auth/register')
         },
         async postRegister(req,res){
             const { name, email, password } = req.body

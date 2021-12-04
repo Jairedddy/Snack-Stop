@@ -56,15 +56,15 @@
     <section class="menu container mx-auto py-8" id="menubox">
         <h1 class="font-bold mb-8" style="font-size : 30px; background-color: lightcoral; text-align: center;">Burgers</h1>
         <div class="grid grid-cols-3 gap-x-12 gap-y-16">
-            <% items.forEach(function(item){ %>
+            <% snacks.forEach(function(snack){ %>
                 <div class="w-64">
-                    <img class="h-40 mb-4 mx-auto" src="IMAGES/<%= item.image %>" alt="">
+                    <img class="h-40 mb-4 mx-auto" src="IMAGES/<%= snack.image %>" alt="">
                     <div style="text-align : center;">
-                        <h2 class="mb-4" style="font-size : 16px;"><%=item.name%></h2>
+                        <h2 class="mb-4" style="font-size : 16px;"><%=snack.name%></h2>
                         <span class="px-4 rounded-full uppercase" style="font-size: 14px;">Serves 1</span>
                         <div class="flex items-center justify-around mt-6">
-                            <span class="font-bold text-lg" style="font-size : 14px;">$<%= item.price %>.00</span>
-                            <button data-item="<%= JSON.stringify(item) %>" class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                            <span class="font-bold text-lg" style="font-size : 14px;">$<%= snack.price %>.00</span>
+                            <button data-item="<%= JSON.stringify(snack) %>" class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
                                 <span>+</span>
                                 <span class="ml-4">Add</span>
                             </button>
